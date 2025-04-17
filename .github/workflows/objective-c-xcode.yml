@@ -15,13 +15,11 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '2.0.6' # 根据你的项目调整版本
+        flutter-version: '2.2.2' # 根据你的项目调整版本
 
     - name: Install Dependecies
       run: |
-        cd ios
         flutter pub get
-        cd ..
         
     - name: Build iOS (Debug)
       run: |
