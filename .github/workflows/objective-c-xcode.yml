@@ -1,0 +1,29 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.19.5' # 根据你的项目调整版本
+
+    - name: Install Dependecies
+      run: |
+        cd ios
+        flutter pub add material_color_utilities:^0.8.0
+        flutter pub get
+        cd ..
+        
+    - name: Build iOS (Debug)
+      run: |
+        flutter build ios --debug --no-codesign
