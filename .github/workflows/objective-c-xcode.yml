@@ -15,7 +15,7 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '2.8.0' # 根据你的项目调整版本
+        flutter-version: '2.13.0-0.1.pre' # 根据你的项目调整版本
 
     - name: Install Dependecies
       run: |
